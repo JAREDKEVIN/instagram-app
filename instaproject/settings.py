@@ -16,6 +16,8 @@ import django_heroku
 import dj_database_url
 from decouple import config, Csv
 import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
@@ -49,9 +51,9 @@ INSTALLED_APPS = [
 
 
 cloudinary.config(
-  cloud_name = "oyesa",
-  api_key = "749352579693875",
-  api_secret = "W6qFNFY_0mRnS6YbzrzWwegcfCY",
+  cloud_name = "moringa-kipkemoi",
+  api_key = "583484295129265",
+  api_secret = "iUp89baICJSY--PpsiI7aOIuGOg",
 )
 
 
