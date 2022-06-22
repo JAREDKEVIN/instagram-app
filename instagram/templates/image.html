@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+.img-comm{
+  font-weight: lighter;
+  font-size: 15px;
+}
+</style>
+
+
+<!-- posts -->
+<section class="blog-section">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="{{ image.image.url }}" class="img-fluid rounded-start" alt="...">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="row g-0">
+
+                        <div class="col-md-12">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ image.image_name }}</h5>
+                                <p class="card-text">
+                                    {{image.image_caption }}
+                                </p>
+                                {% if comments %}
+                                {% for comment in comments %}
+                                <div class="d-flex justify-content-start card mb-3">
+                                    <div class="img-box">
+                                        <img src="https://res.cloudinary.com/oyesa/image/upload/v1654355601/profile-pics/blank-avatar_huoxz5.png"
+                                            alt="">
+                                    </div>
+                                    <div class="m-2">
+                                        <h6>{{ comment.user.username }} <span class="img-comm"> {{comment.comment }}</span></h6>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+
+                                <!-- comment form -->
+                                <div class="card">
+                                    <div class="card-body">
+                                        <form action="{% url 'comment.add' %}" method="post">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                <label for="exampleFormControlTextarea1">Comment</label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                                    name="comment" required></textarea>
+                                                <input type="hidden" name="image_id" value="{{ image.id }}">
+                                            </div>
+                                            <button type="submit" class="btn btn btn-primary mt-4 float-right">Add Comment</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-capitalize mt-4"><strong>{{ image.user.username }}</strong> Posts</p>
+            {% for image in images %}
+            <div class="col-sm-12 col-md-3">
+                <div class="card mb-4">
+                    <div class="d-flex justify-content-start m-2">
+                        <div>
+                            <a href="{% url 'user.profile' image.user.id %}">
+                                <img src="https://res.cloudinary.com/oyesa/image/upload/v1654355601/profile-pics/blank-avatar_huoxz5.png"
+                                    alt="" class="user-avatar" style="border-radius: 50%;">
+                            </a>
+                        </div>
+                        <div class="text-center mt-1">
+                            <a href="{% url 'user.profile' image.user.id %}">
+                                <h6><small>{{ image.user.username }} </small></h6>
+                            </a>
+                        </div>
+                    </div>
+                    <img src="{{ image.image.url }}" class="postcard-img" alt="post image">
+                    <div class="card-body">
+                        <small>
+                            <div class="d-flex">
+                                <div>
+                                    <p><a href="{% url 'image.likes' image.id %}"> <i class="far fa-heart"></i></a></p>
+                                </div>
+                                <div>
+                                    <p><a href="{% url 'single.image' image.id %}"> <i class="far fa-comment"></i></a></p>
+                                </div>
+                                <div>
+                                  <p><a href="">  <i class="fas fa-paper-plane"></i></a></p>
+                                </div>
+                            </div>
+                        </small>
+                        <a href="{% url 'single.image' image.id %}"><p class="fade-item">{{image.like_count }} Likes</p>
+                            <h6 class="">{{ image.image_caption|slice:":30" }}<small><span class="text-muted">...more</span></small></h6>
+                            <p class="fade-item">View all {{image.comment_count }} comments</p>
+                            <p class="post-time">{{image.image_date|timesince}} ago</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
