@@ -42,7 +42,7 @@ To run the application, open the cloned files in your terminal and run the follo
 * Bootstrap5
 
 ### Bugs
-The add comment button doesnt work like it should and the follow button as well; if you can assist please feel free to clone the repo and debug.
+Feel free to add features and modify the _Unfollow_ and _Follow_ buttons.
 
 ## Contact
 To make contributions to the code or offer any suggestions you can contact me via email:
