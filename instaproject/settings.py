@@ -28,7 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'x%_jcw%#a$qsv8)eyh+f_^#!xzx($wm0xrlk9!^(h=pjz*q3g='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'bootstrap5',
     'cloudinary',
     'tinymce',
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
 
 
@@ -95,9 +97,9 @@ WSGI_APPLICATION = 'instaproject.wsgi.application'
 DATABASES = {
       'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-    'PASSWORD':config('DB_PASSWORD'),
+        'NAME': 'instaproject',
+        'USER': 'postgres',
+        'PASSWORD':'SEMBERUA',
     }
 }
 
