@@ -44,11 +44,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'instagram.apps.InstagramConfig',
+    'instaproject',
     'bootstrap5',
     'cloudinary',
     'tinymce',
     "crispy_forms",
     "crispy_bootstrap5",
+    
 ]
 
 
@@ -100,6 +102,7 @@ DATABASES = {
         'NAME': 'instaproject',
         'USER': 'postgres',
         'PASSWORD':'SEMBERUA',
+        
     }
 }
 

@@ -5,7 +5,7 @@ __START__
 -python3 -m venv --without-pip virtual
 -source virtual/bin/activate
 -curl https://bootstrap.pypa.io/get-pip.py | python
--pip install django==4.0.4
+-pip install dojang==4.0.4
 -python3.8
 >>>import django
 >>>django.get_version()
