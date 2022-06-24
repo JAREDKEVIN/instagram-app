@@ -5,6 +5,10 @@ This is a website application: a clone for Instagram. Users can sign-up, login,v
 
 #### Author
 Kipkemoi Jared Kevin
+![LOGIN](https://github.com/JAREDKEVIN/instagram-app/blob/924b02d9de5cf37a160e79119c8c7d81d1002e36/SCREENSHOTS/LOGIN.PNG)
+
+![SIGN UP](https://github.com/JAREDKEVIN/instagram-app/blob/924b02d9de5cf37a160e79119c8c7d81d1002e36/SCREENSHOTS/SIGN%20in.PNG)
+
 
 ### Behaviour Driven Development (BDD)
 * The web page loads displaying a sign in/sign up form. When a user signs in a webpage loads displaying pictures posted by other users. Logged in users are able to comment and like pictures posted by other users. They are also able to update their profile details and post a photo with a caption.
